@@ -1,20 +1,25 @@
+![Market Trends Finder](https://placehold.co/1200x300/064e3b/d1fae5?text=Market+Trends+Finder)
+
 # 🧠 Market Trends Finder
 
-A **self-evolving market intelligence engine** that discovers high-performing startups, products, and trends, analyzes *why* they work, and auto-generates **playbooks** to replicate their success in other markets/regions (e.g., US → India). It learns from every run and improves over time.
+> 📈 **Playbook-driven market intelligence & trend discovery engine** — discovers high-performing startups, products, and trends, analyzes *why* they work, and auto-generates **playbooks** to replicate their success in other markets/regions (e.g., US → India). It learns from every run and improves over time.
 
 ---
 
-## 🎯 What It Does
+## ✨ Features
 
-- 🔍 **Discovers** trending startups, products, and market movements (TikTok skincare trends, finance news, startup discovery, etc.)
-- 🧩 **Analyzes** why a trend/product is succeeding
-- 📋 **Generates playbooks** — actionable, step-by-step replication guides
-- 🔁 **Learns continuously** — stores skills/memory from past runs to improve future workflows
-- 🏗️ **Sandboxed execution** — each workflow run executes in an isolated Docker container
+- 🔍 **Trend Discovery** — finds trending startups, products, and market movements (TikTok skincare trends, finance news, startup discovery, etc.)
+- 🧩 **Root-Cause Analysis** — analyzes *why* a trend/product is succeeding
+- 📋 **Auto-Generated Playbooks** — actionable, step-by-step replication guides
+- 🔁 **Continuous Learning** — stores skills/memory from past runs to improve future workflows
+- 🏗️ **Sandboxed Execution** — each workflow run executes in an isolated Docker container
+- 🌍 **Market Replication** — adapt a winning strategy from one market/region to another
 
 ---
 
-## 🏗️ System Philosophy
+## 🏗️ Architecture
+
+### 🧭 System Philosophy
 
 - Everything is a **workflow** (defined as Markdown playbooks)
 - Intelligence is stored as **reusable skills**
@@ -24,17 +29,15 @@ A **self-evolving market intelligence engine** that discovers high-performing st
 
 ### 🔁 System Loop
 
-1. Receive task / workflow
-2. Plan execution
-3. Reuse or generate code
-4. Execute in a Docker sandbox
-5. Store outputs + logs (`runs/`)
-6. Learn from results
-7. Convert useful code into reusable skills
+1. 📥 Receive task / workflow
+2. 🗺️ Plan execution
+3. ♻️ Reuse or generate code
+4. 🐳 Execute in a Docker sandbox
+5. 💾 Store outputs + logs (`runs/`)
+6. 🎓 Learn from results
+7. 🧰 Convert useful code into reusable skills
 
----
-
-## 🛠️ Tech Stack
+### 🛠️ Tech Stack
 
 - **Python 3.10**
 - **Docker** (sandboxed agent execution — `system/agent_cli.py` is the container entrypoint)
@@ -42,9 +45,7 @@ A **self-evolving market intelligence engine** that discovers high-performing st
 - **OpenAI API** — powers the autonomous agent / code generation
 - Libraries: `requests`, `beautifulsoup4`, `selenium`, `pandas`, `python-dotenv`, `docker`
 
----
-
-## 📂 Project Structure
+### 📂 Project Structure
 
 ```
 market_trends_finder/
@@ -66,7 +67,48 @@ market_trends_finder/
 
 ---
 
-## ⚙️ Setup
+## 🖼️ Demo / Screenshots
+
+> 📌 *Placeholder images below — replace with real screenshots from your runs.*
+
+![Report Demo](https://placehold.co/800x400?text=Report+Demo)
+
+![Playbook Output](https://placehold.co/800x400?text=Playbook+Output)
+
+![Run Logs](https://placehold.co/800x400?text=Run+Logs)
+
+---
+
+## ▶️ How to Run a Workflow
+
+Run a workflow by name (corresponds to a project/playbook definition, e.g. `projects/tiktok_skincare_us.md`):
+
+```bash
+python run_workflow.py <workflow_name>
+```
+
+Example:
+
+```bash
+python run_workflow.py tiktok_skincare_us
+```
+
+This will:
+1. Create a timestamped run directory under `runs/`
+2. Execute the workflow inside a Docker sandbox
+3. Sync results back to the local `runs/` folder
+4. Auto-generate a replication playbook for the run
+
+---
+
+## 📝 Notes
+
+- `runs/` and `data/` contain generated outputs and are excluded from version control.
+- Never commit your `.env` file — it contains your OpenAI API key.
+
+---
+
+## 🛠️ Setup
 
 ### 1. Clone the repo
 
@@ -93,7 +135,7 @@ Create a `.env` file in the project root:
 OPENAI_API_KEY=your_openai_api_key_here
 ```
 
-### 4. Build the Docker image (used for sandboxed workflow execution)
+### 4. Docker setup (used for sandboxed workflow execution)
 
 ```bash
 docker build -t mie-agent:latest .
@@ -103,29 +145,8 @@ docker build -t mie-agent:latest .
 
 ---
 
-## ▶️ How to Run
-
-Run a workflow by name (corresponds to a project/playbook definition, e.g. `projects/tiktok_skincare_us.md`):
+## 🚀 Run
 
 ```bash
 python run_workflow.py <workflow_name>
 ```
-
-Example:
-
-```bash
-python run_workflow.py tiktok_skincare_us
-```
-
-This will:
-1. Create a timestamped run directory under `runs/`
-2. Execute the workflow inside a Docker sandbox
-3. Sync results back to the local `runs/` folder
-4. Auto-generate a replication playbook for the run
-
----
-
-## 📝 Notes
-
-- `runs/` and `data/` contain generated outputs and are excluded from version control.
-- Never commit your `.env` file — it contains your OpenAI API key.
