@@ -1,0 +1,104 @@
+# 🏗️ System Architecture
+
+## 🔷 High-Level Flow
+
+Prompt
+→ Orchestrator
+→ Agent Core
+→ Skill Manager
+→ Execution Engine
+→ Runtime Sandbox
+→ Artifact Collector
+→ Memory System
+→ Skill Updater
+
+---
+
+## 🧱 Core Components
+
+### 1. Orchestrator
+- Entry point of system
+- Loads workflow + config
+- Creates run session
+
+---
+
+### 2. Agent Core
+- Interprets user goal
+- Generates execution plan
+- Decides:
+  - reuse skill
+  - OR generate new code
+
+---
+
+### 3. Skill Manager
+- Retrieves relevant skills
+- Uses embedding similarity
+- Ranks based on:
+  - success rate
+  - recency
+  - usage
+
+---
+
+### 4. Execution Engine
+- Executes steps
+- Runs scripts/tools
+- Handles retries + failures
+
+---
+
+### 5. Runtime Sandbox
+- Isolated execution environment
+- Prevents system pollution
+- Per-run directory
+
+---
+
+### 6. Artifact Collector
+Collects:
+- generated scripts
+- logs
+- outputs
+- dependencies
+
+---
+
+### 7. Memory System
+
+Stores:
+- past runs
+- failures
+- successful patterns
+
+Types:
+- Short-term (current run)
+- Long-term (persistent DB + embeddings)
+
+---
+
+### 8. Skill Updater
+
+- Converts useful scripts → reusable skills
+- Handles versioning
+- Replaces weak skills
+
+---
+
+## 🔁 Data Flow
+
+1. Prompt received
+2. Run created
+3. Agent plans steps
+4. Skills retrieved
+5. Code executed
+6. Artifacts collected
+7. Memory updated
+8. Skills improved
+
+---
+
+## ⚡ Key Principle
+
+> Every execution should make the system smarter.

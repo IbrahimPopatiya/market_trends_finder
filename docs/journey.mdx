@@ -1,0 +1,61 @@
+# 🗺️ Project Journey: Market Intelligence Engine
+
+This document tracks the evolution of the **Market Intelligence Engine (MIE)**, capturing key decisions, milestones, and architectural shifts.
+
+---
+
+## 🏁 Phase 0: The Vision
+**Date**: April 6, 2026
+**Status**: Completed ✅
+
+- defined the core goal: US → India startup replication.
+- established system requirements:
+  - Scrape trends (TikTok, IG, SaaS).
+  - Analyze product-market fit.
+  - Generate execution playbooks.
+- created initial documentation:
+  - `what_we_are_building.mdx`
+  - `architecture.mdx`
+  - `overview.mdx`
+
+---
+
+## 🏗️ Phase 1: Self-Evolving Infrastructure
+**Date**: April 6, 2026
+**Status**: In Progress 🏗️
+
+### Objective
+Build a system where the agent is not just a "script runner," but a "skill builder." Every run should contribute tools (utils) and dependencies back to the main engine.
+
+### Key Decisions
+1. **Dockerized Sandboxing**: Each workflow run happens in an isolated Docker container.
+2. **Post-Run Synchronization**: A sync mechanism detects new scripts in `utils/` and new entries in `requirements.txt`, merging them into the master workspace.
+3. **CLI-Based Interface**: Orchestration is handled via a Python-based CLI (`run_workflow.py`).
+
+### Milestones
+- [x] Implementation Plan created. ✅
+- [x] Docker integration confirmed. ✅
+- [x] Initial directory structure setup. ✅
+- [x] Orchestrator core developed. ✅
+- [x] CLI Entry point (`run_workflow.py`) ready. ✅
+
+---
+
+## 🕵️ Phase 2: Discovery & Intelligence Layer
+**Date**: April 6, 2026
+**Status**: Planning 📋 (Awaiting Approval)
+
+### Objective
+Transition from infrastructure to intelligence. Build the data collection engine, standard scraper framework, and trend repository.
+
+### Key Decisions
+1. **BaseScraper Interface**: Standardizing generated tools.
+2. **SQLite Trend Vault**: Centralized storage for business discovery.
+3. **AI Metadata Extraction**: Moving from raw data to structured "Market Intelligence."
+
+---
+
+## ⏭️ Next Steps
+1. Get approval for Phase 2 Implementation Plan.
+2. Build the `BaseScraper` and `DBManager`.
+3. Implement the first real TikTok/ProductHunt discovery workflow.
