@@ -67,15 +67,19 @@ market_trends_finder/
 
 ---
 
-## 🖼️ Demo / Screenshots
+## 🖼️ Screenshots
 
-> 📌 *Placeholder images below — replace with real screenshots from your runs.*
+### Main Page
+![Main Page](public/mainpage.png)
 
-![Report Demo](https://placehold.co/800x400?text=Report+Demo)
+### Searching Trends for a Company
+![Searching Trends Company](public/searchinf%20trends%20company.png)
 
-![Playbook Output](https://placehold.co/800x400?text=Playbook+Output)
+### History Research
+![History Research](public/history%20research.png)
 
-![Run Logs](https://placehold.co/800x400?text=Run+Logs)
+### History Research for a Company
+![History Research Company](public/history%20research%20company.png)
 
 ---
 
