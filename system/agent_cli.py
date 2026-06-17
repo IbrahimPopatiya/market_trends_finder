@@ -4,8 +4,8 @@ import argparse
 from dotenv import load_dotenv
 from openai import OpenAI
 
-# Load .env inside the container
-load_dotenv("/run/.env")
+# Load .env if available (local dev), otherwise rely on container env vars
+load_dotenv("/run/.env", override=False)
 
 def analyze_business_model(data_summary):
     """

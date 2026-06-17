@@ -57,15 +57,15 @@ class Orchestrator:
         abs_run_path = os.path.abspath(run_path)
         abs_env_path = os.path.join(self.workspace_root, ".env")
         
-        # We mount the run_path to /run and the .env file if it exists
+        # We mount the run_path to /run and pass .env vars to the container
         cmd = [
             "docker", "run", "--rm",
             "-v", f"{abs_run_path}:/run",
         ]
-        
+
         if os.path.exists(abs_env_path):
-            cmd.extend(["-v", f"{abs_env_path}:/run/.env"])
-            print("Mounting .env for OpenAI Authentication.")
+            cmd.extend(["--env-file", abs_env_path])
+            print("Passing .env for OpenAI Authentication.")
         
         cmd.extend([
             "mie-agent:latest",
